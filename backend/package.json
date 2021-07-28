@@ -5,6 +5,10 @@
   "type": "module",
   "author": "Rezan Mohammad",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node ./core/index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

@@ -2,14 +2,20 @@ import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-function App() {
-  const [code, setcode] = useState(`#include <iostream>
+const initialCode = `#include <iostream>
 
 int main(){
   std::cout << "Hello World!" << std::endl;
   return 0;
-}`);
-  const [lang, setlang] = useState("cpp");
+}`;
+const initialLang = "cpp";
+const rustCode = `fn main() {
+    println!("Hello, world!");
+}`;
+
+function App() {
+  const [code, setcode] = useState(initialCode);
+  const [lang, setlang] = useState(initialLang);
   const [output, setoutput] = useState("");
 
   const payload = {
@@ -20,9 +26,19 @@ int main(){
   const url = process.env.REACT_APP_URL;
 
   const submitHndel = async () => {
-    const { data } = await axios.post(url, payload);
-    console.log(data);
-    setoutput(data);
+    try {
+      const { data } = await axios.post(url, payload);
+      console.log(data);
+      setoutput(data);
+    } catch (error) {
+      // if (response) {
+      //   const errMsg = response.data.err.stderr;
+      //   setoutput(errMsg);
+      // } else {
+      //   setoutput("Please retry submitting.");
+      // }
+      console.log(error);
+    }
   };
   return (
     <div className="App">
@@ -37,8 +53,8 @@ int main(){
           onChange={(e) => setlang(e.target.value)}
         >
           <option value="cpp">Cpp</option>
-          <option value="python">python</option>
-          <option value="js">Javascript</option>
+          <option value="python">Python</option>
+          <option value="rust">Rust</option>
         </select>
         <textarea
           value={code}
