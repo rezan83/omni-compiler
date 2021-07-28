@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.App-header {
+  height: 20vh;
+  margin: 5px;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+main{
+  height: 45vh;
+  justify-content: space-around;
+}
+
+button{
+  align-self: center;
+  width: 50vw;
+  height: 40px;
+}
+
+
+a{
+  color: #61dafb;
+}

@@ -1,0 +1,25 @@
+POST http://localhost:5000/compile/ 
+content-type: application/json
+
+{
+    "lang": "python",
+    "code": "print('hello')"
+}
+###
+
+POST http://localhost:5000/compile/ 
+content-type: application/json
+
+{
+    "lang": "cpp",
+    "code": "#include <iostream> \n int main(){std::cout << \"Hello World! \" ;return 0;}"
+}
+###
+
+POST http://localhost:5000/compile/ 
+content-type: application/json
+
+{
+    "lang": "javascript",
+    "code": "console.log('hello')"
+}
